@@ -1,5 +1,7 @@
 # Rin
 
+![rin](img/rin.png)
+
 Discord bot build from following mainly [this guide](https://refruity.xyz/writing-discord-bot/) and a bit of 
 [this codebase](https://github.com/dtinth/discord-transcriber).
 
