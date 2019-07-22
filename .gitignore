@@ -2,3 +2,4 @@ config.json
 google-credentials.json
 audio
 node_modules
+.idea
