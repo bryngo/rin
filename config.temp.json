@@ -1,0 +1,11 @@
+{
+  "discordApiToken": "",
+  "guildId": "",
+  "voiceChannelName": "",
+  "textChannelName": "",
+  "languageCode": "en_US",
+  "wrongChannelAudioPath": "audio/wrongChannelEn.mp3",
+  "boopAudioPath": "audio/boop.mp3",
+  "twice-clip": "audio/twice-bryan-guinn-ezra-brandon.mp3",
+  "prefix": "?"
+}

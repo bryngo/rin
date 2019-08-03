@@ -1,5 +1,5 @@
 {
-  "name": "ezbot",
+  "name": "rin",
   "version": "1.0.1",
   "description": "Discord bot",
   "main": "index.js",
@@ -12,16 +12,12 @@
   "pre-commit": [
     "lint"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/JustMrPhoenix/ezbot.git"
-  },
-  "author": "justmrphoenix",
+  "author": "bryngo",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/JustMrPhoenix/ezbot/issues"
+    "url": "https://github.com/bryngo/rin/issues"
   },
-  "homepage": "https://gitlab.com/JustMrPhoenix/ezbot#README",
+  "homepage": "https://github.com/bryngo/rin/blob/master/README.md",
   "dependencies": {
     "@google-cloud/speech": "2.1.1",
     "discord.js": "github:discordjs/discord.js",
