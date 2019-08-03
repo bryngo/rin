@@ -15,3 +15,6 @@ Built with
 - Add features all the other bots have out there (e.g. kicking, playing music, etc)
 - Add those same features, but make it voice enabled.
 
+
+## Useful links
+- [File organization for events and commands](https://anidiots.guide/first-bot/a-basic-command-handler)
