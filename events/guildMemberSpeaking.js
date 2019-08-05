@@ -6,7 +6,7 @@ const googleSpeechClient = new googleSpeech.SpeechClient();
 
 module.exports = async (client, member, speaking) => {
 
-    if (!speaking) return;
+    if (!speaking || !client.speechEnabled) return;
 
     console.log(`I'm listening to ${member.displayName}`);
 
@@ -20,9 +20,12 @@ module.exports = async (client, member, speaking) => {
         sampleRateHertz: 48000,
         languageCode: 'en-US'
     };
+
     const request = {
         config: requestConfig
     };
+
+    // API call to transcribe the message
     const recognizeStream = googleSpeechClient
         .streamingRecognize(request)
         .on('error', console.error)
@@ -34,6 +37,7 @@ module.exports = async (client, member, speaking) => {
 
             console.log(`Transcription: ${transcription}`);
 
+            // play an audio file if keyword is detected
             if (transcription.includes("twice")) {
                 await Dispatcher.playFile(voiceConnection, client.config["twice-clip"]);
             }
@@ -47,7 +51,6 @@ module.exports = async (client, member, speaking) => {
         console.log(`I'm done listenting to ${member.displayName}`);
     })
 };
-
 
 function convertBufferTo1Channel(buffer) {
     const convertedBuffer = Buffer.alloc(buffer.length / 2);

@@ -6,7 +6,9 @@ const Enmap = require("enmap");
 
 const discordClient = new Discord.Client();
 
+// read in all of our configurations
 discordClient.config = config;
+discordClient.speechEnabled = false;
 
 // link all the events
 // explanation for how this works can be found here:
@@ -32,5 +34,6 @@ fs.readdir("./commands/", (err, files) => {
         discordClient.commands.set(commandName, props);
     });
 });
+
 
 discordClient.login(config.discordApiToken);

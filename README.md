@@ -19,3 +19,4 @@ Built with
 
 ## Useful links
 - [File organization for events and commands](https://anidiots.guide/first-bot/a-basic-command-handler)
+- [More in-depth guide](http://bryngo.me/articles/2019-08/discord-bot) on how to make this bot.
