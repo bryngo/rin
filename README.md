@@ -16,6 +16,10 @@ Built with
 - Add those same features, but make it voice enabled.
 - Figure out a way to reduce the Google Speech to text API usage. I've only tested this thing for like less than an hour each day for 3 days, and I've been charged $3 already. I think I'm making unecesscary requests; [info](https://cloud.google.com/speech-to-text/docs/basics).
 
+### TODO: Commands
+- `?play`: play audio from any audio source
+- `?stats`: get summary statistics of user activity (games, speaking, etc)
+
 
 ## Useful links
 - [File organization for events and commands](https://anidiots.guide/first-bot/a-basic-command-handler)
