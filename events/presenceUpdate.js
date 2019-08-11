@@ -40,5 +40,5 @@ module.exports = (client, oldPresence, newPresence) => {
     let timeDiff = (timeOut.getTime() - timeIn.getTime()) / 1000;
 
     client.textChannel.send(`${oldPresence.user.username} moved from ${oldGame} to ${newGame}`);
-    client.textChannel.send(`Played ${oldGame} for ${timeDiff} seconds`);
+    client.textChannel.send(`--- Played ${oldGame} for ${timeDiff} seconds`);
 };

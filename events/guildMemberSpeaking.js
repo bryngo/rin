@@ -8,8 +8,6 @@ module.exports = async (client, member, speaking) => {
 
     return;
 
-
-
     if (!speaking || member.user.bot) return;
 
     console.log(`I'm listening to ${member.displayName}`);
