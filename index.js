@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const config = require('./config');
 const fs = require('fs');
 const Enmap = require("enmap");
+const mongoose = require('mongoose');
 
 const discordClient = new Discord.Client();
 
@@ -35,5 +36,13 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
+// connect to a db called mongoose_basics
+mongoose.connect('mongodb://localhost/rin', function (err) {
+
+    if (err) throw err;
+
+    console.log('Successfully connected');
+
+});
 
 discordClient.login(config.discordApiToken);

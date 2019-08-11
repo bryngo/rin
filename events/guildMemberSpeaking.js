@@ -1,17 +1,21 @@
 const { Transform } = require('stream');
+const ytdl = require('ytdl-core');
 
-const Dispatcher = require('../promised/Dispatcher');
 const googleSpeech = require('@google-cloud/speech');
 const googleSpeechClient = new googleSpeech.SpeechClient();
 
 module.exports = async (client, member, speaking) => {
 
-    if (!speaking || !client.speechEnabled) return;
+    return;
+
+
+
+    if (!speaking || member.user.bot) return;
 
     console.log(`I'm listening to ${member.displayName}`);
 
     const voiceConnection = client.voiceConnection;
-    const receiver = voiceConnection.receiver;
+    let receiver = voiceConnection.receiver;
 
     // this creates a 16-bit signed PCM, stereo 48KHz stream
     const audioStream = receiver.createStream(member, {mode: "pcm"});
@@ -39,7 +43,7 @@ module.exports = async (client, member, speaking) => {
 
             // play an audio file if keyword is detected
             if (transcription.includes("twice")) {
-                await Dispatcher.playFile(voiceConnection, client.config["twice-clip"]);
+                voiceConnection.play(client.config["twice-clip"]);
             }
         });
 
@@ -49,6 +53,8 @@ module.exports = async (client, member, speaking) => {
 
     audioStream.on('end', async () => {
         console.log(`I'm done listenting to ${member.displayName}`);
+        client.voiceConnection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { quality: 'highestaudio' }));
+
     })
 };
 
