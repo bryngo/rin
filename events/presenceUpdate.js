@@ -1,4 +1,4 @@
-var timeLog = require('../models/timeLog');
+var activityLog = require('../models/activityLog');
 
 module.exports = (client, oldPresence, newPresence) => {
 
@@ -21,14 +21,14 @@ module.exports = (client, oldPresence, newPresence) => {
         timeOut = newPresence.activity.timestamps.start;
     }
 
-    let timeLogEntry = new timeLog({
+    let activityLogEntry = new activityLog({
         userID: oldPresence.userID,
         timeIn: timeIn ,
         timeOut: timeOut,
         activityName: oldGame
     });
 
-    timeLogEntry.save(function(err) {
+    activityLogEntry.save(function(err) {
         if(err) {
             console.log("Problem saving timeLog");
             return;
