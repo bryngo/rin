@@ -2,6 +2,8 @@ var activityLog = require('../models/activityLog');
 
 module.exports = (client, oldPresence, newPresence) => {
 
+    console.log(client.guilds);
+
     if(!oldPresence || !newPresence) return;
 
     const oldGame = oldPresence.activity ? oldPresence.activity.name : 'nothing';

@@ -1,4 +1,5 @@
-var activityLog = require('../models/activityLog');
+const activityLog = require('../models/activityLog');
+const commandUtil = require('../utilities/commandStatus');
 
 /*
 -- USAGE --
@@ -10,9 +11,7 @@ Total play time for each logged game on a specified user
  */
 exports.run = async (client, message, args) => {
 
-    // start processing the command
-    await message.react('🕛')
-        .catch(console.error);
+    commandUtil.commandRunning(message);
 
     const taggedUser = message.mentions.users.first();
     const userID = taggedUser.id;
@@ -23,10 +22,7 @@ exports.run = async (client, message, args) => {
 
         if(err) {
 
-            // indicate failure
-            message.react('❌')
-                .catch(console.error);
-
+            commandUtil.commandFail(message);
             message.channel.send(`Uh oh, something went wrong here. Please contact support.`);
             return;
         }
@@ -34,10 +30,7 @@ exports.run = async (client, message, args) => {
         // if there's no data on the specified user
         if(docs.length === 0) {
 
-            // indicate failure
-            message.react('❌')
-                .catch(console.error);
-
+            commandUtil.commandFail(message);
             message.channel.send(`Can't find any information on this user. Trying playing some games and make sure Discord can detect your game activity!`);
             return;
         }
@@ -72,9 +65,7 @@ exports.run = async (client, message, args) => {
             }
         });
 
-        // indicate success
-        message.react('✅')
-            .catch(console.error);
+        commandUtil.commandSuccess(message);
 
     });
 };

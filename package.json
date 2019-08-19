@@ -20,18 +20,20 @@
   "homepage": "https://github.com/bryngo/rin/blob/master/README.md",
   "dependencies": {
     "@google-cloud/speech": "2.1.1",
+    "@keyv/mongo": "^1.1.0",
     "discord.js": "github:discordjs/discord.js",
     "dotenv": "^6.1.0",
     "enmap": "^5.1.0",
     "ffmpeg": "^0.0.4",
     "i18n": "^0.8.3",
+    "keyv": "^3.1.0",
     "mongodb": "^3.2.7",
     "mongoose": "^5.6.9",
     "node-opus": "^0.3.2",
     "opusscript": "0.0.6",
     "pino": "^5.13.0",
     "pino-pretty": "^3.2.0",
-    "ytdl-core": "^0.12.0"
+    "ytdl-core": "^0.29.5"
   },
   "devDependencies": {
     "eslint": "^5.8.0",

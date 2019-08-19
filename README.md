@@ -18,8 +18,8 @@ Built with
 
 ### TODO: Commands
 - `?play`: play audio from any audio source
-- `?stats`: get summary statistics of user activity (games, speaking, etc)
-
+- `?playtime`: get summary statistics of user activity (games, speaking, etc)
+- `?playlist`: create custom playlists per user
 
 ## Useful links
 - [File organization for events and commands](https://anidiots.guide/first-bot/a-basic-command-handler)
