@@ -19,6 +19,11 @@ const commandRunning = async function (message) {
         .catch(console.error);
 };
 
+const statusClear = async function (message) {
+    await message.reactions.removeAll();
+};
+
 exports.commandSuccess = commandSuccess;
 exports.commandFail = commandFail;
 exports.commandRunning = commandRunning;
+exports.statusClear = statusClear;

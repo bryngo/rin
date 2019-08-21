@@ -11,7 +11,7 @@ Total play time for each logged game on a specified user
  */
 exports.run = async (client, message, args) => {
 
-    commandUtil.commandRunning(message);
+    await commandUtil.commandRunning(message);
 
     const taggedUser = message.mentions.users.first();
     const userID = taggedUser.id;
@@ -22,7 +22,8 @@ exports.run = async (client, message, args) => {
 
         if(err) {
 
-            commandUtil.commandFail(message);
+            await commandUtil.statusClear(message);
+            await commandUtil.commandFail(message);
             message.channel.send(`Uh oh, something went wrong here. Please contact support.`);
             return;
         }
@@ -30,7 +31,8 @@ exports.run = async (client, message, args) => {
         // if there's no data on the specified user
         if(docs.length === 0) {
 
-            commandUtil.commandFail(message);
+            await commandUtil.statusClear(message);
+            await commandUtil.commandFail(message);
             message.channel.send(`Can't find any information on this user. Trying playing some games and make sure Discord can detect your game activity!`);
             return;
         }
@@ -51,7 +53,7 @@ exports.run = async (client, message, args) => {
         }, {});
 
         // send output to user
-        message.channel.send(`Total play times for ${message.author.username}: `);
+        message.channel.send(`Total play times for ${taggedUser.username}: `);
 
         Object.keys(totalPlayTimes).forEach(function(key) {
 
@@ -65,7 +67,7 @@ exports.run = async (client, message, args) => {
             }
         });
 
-        commandUtil.commandSuccess(message);
-
+        await commandUtil.statusClear(message);
+        await commandUtil.commandSuccess(message);
     });
 };

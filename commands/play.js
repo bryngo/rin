@@ -1,11 +1,27 @@
 const ytdl = require('ytdl-core');
 const commandUtil = require('../utilities/commandStatus');
+const channelUtil = require('../utilities/channel');
 
 exports.run = async (client, message, args) => {
 
-    message.channel.send(`▶ ${args[0]}`);
+    // TODO: Have better coverage for this command
 
-    client.dispatcher = client.voiceConnection.play(ytdl(`${args[0]}`, { quality: 'highestaudio' }));
-    commandUtil.commandSuccess(message);
+    await commandUtil.commandRunning(message);
 
+    // if the bot has permission to play music in the author's voice channel
+    if(message.member.voice.channel && message.member.voice.channel.permissionsFor(client.user).has('SPEAK')) {
+        const voiceConnection = await message.member.voice.channel.join();
+        voiceConnection.play(ytdl(`${args[0]}`, { quality: 'highestaudio' }));
+
+        message.channel.send(`--- ▶ Playing ▶ --- \n ${args[0]}`);
+
+    } else {
+        message.channel.send(`You must be in a voice channel for me to play.`);
+        await commandUtil.statusClear(message);
+        await commandUtil.commandFail(message);
+        return;
+    }
+
+    await commandUtil.statusClear(message);
+    await commandUtil.commandSuccess(message);
 };

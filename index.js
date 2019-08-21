@@ -11,6 +11,19 @@ const discordClient = new Discord.Client();
 discordClient.config = config;
 discordClient.speechEnabled = false;
 
+// for hot swapping server specific settings
+const Keyv = require('keyv');
+const prefixes = new Keyv('mongodb://localhost/rin', {namespace: 'prefixes'});
+const defaultTextChannels = new Keyv('mongodb://localhost/rin', {namespace: 'defaultTextChannels'});
+const defaultVoiceChannels = new Keyv('mongodb://localhost/rin', {namespace: 'defaultVoiceChannels'});
+const defaultWelcomeChannels = new Keyv('mongodb://localhost/rin', {namespace: 'defaultWelcomeChannels'});
+
+discordClient.prefixes = prefixes;
+discordClient.defaultTextChannels = defaultTextChannels;
+discordClient.defaultVoiceChannels = defaultVoiceChannels;
+discordClient.defaultWelcomeChannels = defaultWelcomeChannels;
+
+
 // link all the events
 // explanation for how this works can be found here:
 // https://anidiots.guide/first-bot/a-basic-command-handler

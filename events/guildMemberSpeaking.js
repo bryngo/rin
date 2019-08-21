@@ -4,15 +4,18 @@ const ytdl = require('ytdl-core');
 const googleSpeech = require('@google-cloud/speech');
 const googleSpeechClient = new googleSpeech.SpeechClient();
 
+const channelUtil = require('../utilities/channel');
+
 module.exports = async (client, member, speaking) => {
 
+    // transcriptions disabled for now
     return;
 
     if (!speaking || member.user.bot) return;
 
     console.log(`I'm listening to ${member.displayName}`);
 
-    const voiceConnection = client.voiceConnection;
+    const voiceConnection = await channelUtil.getDefaultVoiceChannel().join();
     let receiver = voiceConnection.receiver;
 
     // this creates a 16-bit signed PCM, stereo 48KHz stream
@@ -51,8 +54,7 @@ module.exports = async (client, member, speaking) => {
 
     audioStream.on('end', async () => {
         console.log(`I'm done listenting to ${member.displayName}`);
-        client.voiceConnection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { quality: 'highestaudio' }));
-
+        voiceConnection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { quality: 'highestaudio' }));
     })
 };
 

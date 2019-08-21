@@ -11,13 +11,21 @@ const commandUtil = require("../utilities/commandStatus");
 
 exports.run = async (client, message, args) => {
 
+    await commandUtil.commandRunning(message);
+
+    const voiceConnection = await message.member.voice.channel.join();
+    const voiceDispatcher = await voiceConnection.dispatcher;
+
     // error checking
-    if(!client.dispatcher) {
+    if(!voiceDispatcher) {
+
         message.channel.send(`Doesn't look like anything is playing.`);
-        commandUtil.commandFail(message);
+        await commandUtil.statusClear(message);
+        await commandUtil.commandFail(message);
         return;
     }
 
-    client.dispatcher.resume();
-    commandUtil.commandSuccess(message);
+    voiceDispatcher.resume();
+    await commandUtil.statusClear(message);
+    await commandUtil.commandSuccess(message);
 };
