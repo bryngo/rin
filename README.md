@@ -12,7 +12,7 @@ Built with
 
 Chat about the bot with me here
 
-![Discord Banner 2](https://discordapp.com/api/guilds/291001184695615488/widget.png?style=banner2)
+![Discord Banner 2](https://discordapp.com/api/guilds/613899158448766986/widget.png?style=banner2)
 
 
 ## Future Plans
