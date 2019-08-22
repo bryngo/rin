@@ -6,9 +6,14 @@ Discord bot build from following mainly [this guide](https://refruity.xyz/writin
 [this codebase](https://github.com/dtinth/discord-transcriber).
 
 Built with
-
 - node v10.16.0
 - discord.js v12.0.0-dev
+
+
+Chat about the bot with me here
+
+![Discord Banner 2](https://discordapp.com/api/guilds/613899158448766986/widget.png?style=banner2)
+
 
 ## Future Plans
 - Add permissions for who can / can't use the voice recognition features. It can get pretty costly.
