@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
     await commandUtil.commandRunning(message);
 
-    const prefix = channelUtil.getPrefix(client, message.guild);
+    const prefix = await channelUtil.getPrefix(client, message.guild);
 
     // could not find a prefix for some reason
     if(!prefix) {

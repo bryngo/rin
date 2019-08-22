@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
     await commandUtil.commandRunning(message);
 
-    const voiceChannel = channelUtil.getDefaultVoiceChannel(client, message.guild);
+    const voiceChannel = await channelUtil.getDefaultVoiceChannel(client, message.guild);
 
     // could not find a prefix for some reason
     if(!voiceChannel) {

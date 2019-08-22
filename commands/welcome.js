@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
     await commandUtil.commandRunning(message);
 
-    const welcomeChannel = channelUtil.getWelcome(client, message.guild);
+    const welcomeChannel = await channelUtil.getWelcome(client, message.guild);
 
     // could not find a prefix for some reason
     if(!welcomeChannel) {
@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
         return;
     }
 
-    message.channel.send(`Your default voice channel is ${voiceChannel}`);
+    message.channel.send(`Your default voice channel is ${welcomeChannel}`);
 
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);

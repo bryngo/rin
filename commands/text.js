@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
     await commandUtil.commandRunning(message);
 
-    const textChannel = channelUtil.getDefaultTextChannel(client, message.guild);
+    const textChannel = await channelUtil.getDefaultTextChannel(client, message.guild);
 
     // could not find a prefix for some reason
     if(!textChannel) {
