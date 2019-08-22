@@ -18,8 +18,6 @@ exports.run = async (client, message, args) => {
 
     activityLog.find({userID: userID}, null, async function (err, docs) {
 
-        await message.reactions.removeAll();
-
         if(err) {
 
             await commandUtil.statusClear(message);

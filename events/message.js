@@ -11,8 +11,10 @@ module.exports = async (client, message) => {
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(prefix) !== 0) return;
 
+    // Grab the server's prefix
+
     // Our standard argument/command name definition.
-    const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
     // Grab the command data from the client.commands Enmap
