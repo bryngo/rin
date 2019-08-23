@@ -5,7 +5,6 @@ const channelUtil = require('../utilities/channel');
 exports.run = async (client, message, args) => {
 
     // TODO: Have better coverage for this command
-
     await commandUtil.commandRunning(message);
 
     // if the bot has permission to play music in the author's voice channel

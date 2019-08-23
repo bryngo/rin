@@ -51,19 +51,21 @@ exports.run = async (client, message, args) => {
         }, {});
 
         // send output to user
-        message.channel.send(`Total play times for ${taggedUser.username}: `);
+        let response = `Total play times for ${taggedUser.username}: \n`;
 
         Object.keys(totalPlayTimes).forEach(function(key) {
 
             // format the output depending on how long the game was played
             if(totalPlayTimes[key] > 3600) {
-                message.channel.send(`---- ${key}: ${(totalPlayTimes[key] / 3600).toFixed(2)}h`);
+                response += (`---- ${key}: ${(totalPlayTimes[key] / 3600).toFixed(2)}h\n`);
             } else if(totalPlayTimes[key] > 60) {
-                message.channel.send(`---- ${key}: ${(totalPlayTimes[key] / 60).toFixed(2)}m`);
+                response += (`---- ${key}: ${(totalPlayTimes[key] / 60).toFixed(2)}m\n`);
             } else {
-                message.channel.send(`---- ${key}: ${totalPlayTimes[key]}s`);
+                response += (`---- ${key}: ${totalPlayTimes[key]}s\n`);
             }
         });
+
+        message.channel.send(response);
 
         await commandUtil.statusClear(message);
         await commandUtil.commandSuccess(message);
