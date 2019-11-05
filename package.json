@@ -28,7 +28,7 @@
     "i18n": "^0.8.3",
     "keyv": "^3.1.0",
     "mongodb": "^3.2.7",
-    "mongoose": "^5.6.9",
+    "mongoose": "^5.7.5",
     "node-opus": "^0.3.2",
     "opusscript": "0.0.6",
     "pino": "^5.13.0",
