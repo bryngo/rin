@@ -9,6 +9,11 @@ Built with
 - node v10.16.0
 - discord.js v12.0.0-dev
 
+## Quick Start 
+- Make sure you are using node v10.16.0 `nvm use --lts` 
+- Start mongodb server `sudo service mongodb start`. For some reason, this doesn't work for my [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) machine 
+so I do `sudo mongod &` every time I want to work on this project after restarting my computer.
+- Run `node index.js` to start. 
 
 Chat about the bot with me here
 
