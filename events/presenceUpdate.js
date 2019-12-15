@@ -15,7 +15,8 @@ module.exports = async (client, oldPresence, newPresence) => {
     /// TODO: Potential bug here, might need to still log this
     if (oldGame === newGame) return;
 
-    let timeIn = oldPresence.activity.timestamps.start;
+    const serverId = oldPresence.guild.available ? oldPresence.guild.id : 0;
+    const timeIn = oldPresence.activity.timestamps.start;
     let timeOut = new Date();
 
     if (newGame !== 'nothing') {
@@ -24,6 +25,7 @@ module.exports = async (client, oldPresence, newPresence) => {
 
     let activityLogEntry = new activityLog({
         userID: oldPresence.userID,
+        serverID: serverId,
         timeIn: timeIn,
         timeOut: timeOut,
         activityName: oldGame
