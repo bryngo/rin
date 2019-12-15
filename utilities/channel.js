@@ -22,10 +22,10 @@ const getDefaultVoiceChannel = async function (client, guild) {
 // gets the configured text channel for the server
 const getPrefix = async function (client, guild) {
 
-    const prefix = client.prefixes.get(guild.id);
+    const prefix = await client.prefixes.get(guild.id);
 
     // default to '?'
-    return prefix ? prefix : '?';
+    return (typeof prefix !== 'undefined') ? prefix : '?';
 };
 
 
