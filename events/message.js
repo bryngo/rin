@@ -3,8 +3,8 @@ const channelUtil = require('../utilities/channel');
 
 module.exports = async (client, message) => {
 
-    const prefix = await channelUtil.getPrefix(client, message.guild);
-
+    // const prefix = await channelUtil.getPrefix(client, message.guild);
+    const prefix = '?';
     // Ignore all bots
     if (message.author.bot) return;
 
