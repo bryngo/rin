@@ -1,5 +1,8 @@
 # Rin
 
+She's alive! Rin now lives on a Digital Ocean droplet. I have githooks set up to auto build when I push, so she'll
+always be online.
+
 ![rin](img/rin.png)
 
 Discord bot build from following mainly [this guide](https://refruity.xyz/writing-discord-bot/) and a bit of 
