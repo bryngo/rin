@@ -4,8 +4,11 @@ exports.run = async (client, message, args) => {
 
     await commandUtil.commandRunning(message);
 
+    const newVoiceChannel = args[0];
+    const clientKey = message.guild.id.toString() + "_" + client.user.id.toString();
+
     const voiceChannel = await message.guild.channels.find(ch => {
-        return ch.name === args[0] && ch.type === 'voice' && ch.permissionsFor(client.user).has('SPEAK');
+        return ch.name === newVoiceChannel && ch.type === 'voice' && ch.permissionsFor(client.user).has('SPEAK');
     });
 
     // if voice channel was not found, or no speaking permissions
@@ -16,8 +19,8 @@ exports.run = async (client, message, args) => {
         return;
     }
 
-    client.defaultVoiceChannels.set(message.guild.id, args[0]);
-    message.channel.send(`Setting voice to ${args[0]}`).catch(console.error);
+    client.defaultVoiceChannels.set(clientKey, newVoiceChannel);
+    message.channel.send(`Setting voice to ${newVoiceChannel}`).catch(console.error);
 
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);

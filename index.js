@@ -58,4 +58,4 @@ mongoose.connect('mongodb://localhost/rin', function (err) {
 
 });
 
-discordClient.login(config.discordApiToken);
+discordClient.login(config.dev_discordApiToken);

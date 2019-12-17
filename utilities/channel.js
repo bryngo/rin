@@ -2,7 +2,9 @@
 // gets the configured text channel for the server
 const getDefaultTextChannel = async function (client, guild) {
 
-    const textChannelName = await client.defaultTextChannels.get(guild.id);
+    const key = guild.id.toString() + "_" + client.user.id.toString();
+
+    const textChannelName = await client.defaultTextChannels.get(key);
 
     return await guild.channels.find(ch => {
         return ch.name === textChannelName && ch.type === 'text'
@@ -12,7 +14,8 @@ const getDefaultTextChannel = async function (client, guild) {
 // gets the configured voice channel for the server
 const getDefaultVoiceChannel = async function (client, guild) {
 
-    const voiceChannelName = await client.defaultVoiceChannels.get(guild.id);
+    const key = guild.id.toString() + "_" + client.user.id.toString();
+    const voiceChannelName = await client.defaultVoiceChannels.get(key);
 
     return guild.channels.find(ch => {
         return ch.name === voiceChannelName && ch.type === 'voice'
@@ -22,7 +25,8 @@ const getDefaultVoiceChannel = async function (client, guild) {
 // gets the configured text channel for the server
 const getPrefix = async function (client, guild) {
 
-    const prefix = await client.prefixes.get(guild.id);
+    const key = guild.id.toString() + "_" + client.user.id.toString();
+    const prefix = await client.prefixes.get(key);
 
     // default to '?'
     return (typeof prefix !== 'undefined') ? prefix : '?';
@@ -32,9 +36,10 @@ const getPrefix = async function (client, guild) {
 // gets the configured welcome channel for the server
 const getWelcome = async function (client, guild) {
 
-    const welcomeChannelName = await client.defaultWelcomeChannels.get(guild.id);
+    const key = guild.id.toString() + "_" + client.user.id.toString();
+    const welcomeChannelName = await client.defaultWelcomeChannels.get(key);
 
-    return guild.channels.find(ch=> {
+    return guild.channels.find(ch => {
         return ch.name === welcomeChannelName && ch.type === 'text'
     });
 };

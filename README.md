@@ -21,7 +21,7 @@ so I do `sudo mongod &` every time I want to work on this project after restarti
 Chat about the bot with me here
 
 ![Discord Banner 2](https://discordapp.com/api/guilds/613899158448766986/widget.png?style=banner2)
-
+c
 
 ## Future Plans
 - Add permissions for who can / can't use the voice recognition features. It can get pretty costly.
