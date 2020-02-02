@@ -60,4 +60,9 @@ mongoose.connect('mongodb://localhost/rin', function (err) {
 });
 
 
-discordClient.login(config.prod_discordApiToken);
+// only use production keys if running on production server
+if(publicIp.v4() === config.PROD_IP) {
+    discordClient.login(config.prod_discordApiToken);
+} else {
+    discordClient.login(config.dev_discordApiToken);
+}
