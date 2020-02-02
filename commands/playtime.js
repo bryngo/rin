@@ -14,6 +14,14 @@ exports.run = async (client, message, args) => {
     await commandUtil.commandRunning(message);
 
     const taggedUser = message.mentions.users.first();
+
+    if(!taggedUser) {
+        await commandUtil.statusClear(message);
+        await commandUtil.commandFail(message);
+        message.channel.send(`Please tag a single user.`);
+        return;
+    }
+
     const userID = taggedUser.id;
 
     activityLog.find({userID: userID}, null, async function (err, docs) {
