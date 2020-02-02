@@ -33,6 +33,7 @@
     "opusscript": "0.0.6",
     "pino": "^5.13.0",
     "pino-pretty": "^3.2.0",
+    "public-ip": "^4.0.0",
     "ytdl-core": "^0.29.5"
   },
   "devDependencies": {

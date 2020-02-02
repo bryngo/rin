@@ -4,6 +4,7 @@ const config = require('./config');
 const fs = require('fs');
 const Enmap = require("enmap");
 const mongoose = require('mongoose');
+const publicIp = require('public-ip');
 
 const discordClient = new Discord.Client();
 
@@ -57,5 +58,6 @@ mongoose.connect('mongodb://localhost/rin', function (err) {
     console.log('Successfully connected');
 
 });
+
 
 discordClient.login(config.prod_discordApiToken);
