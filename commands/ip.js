@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
     await commandUtil.commandRunning(message);
 
-    message.channel.send(`I'm running on ${await publicIp.v4()}.`).catch(console.error);
+    message.channel.send(`I'm running on ${await publicIp.v4()}...`).catch(console.error);
 
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
