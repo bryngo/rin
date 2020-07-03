@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
     const newTextChannel = args[0];
     const clientKey = message.guild.id.toString() + "_" + client.user.id.toString();
 
-    const textChannel = await message.guild.channels.find(ch => {
+    const textChannel = await message.guild.channels.cache.find(ch => {
         return ch.name === newTextChannel && ch.type === 'text' && ch.permissionsFor(client.user).has('SEND_MESSAGES');
     });
 
