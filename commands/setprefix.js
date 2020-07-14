@@ -1,11 +1,5 @@
 const commandUtil = require("../utilities/commandStatus");
 
-/**
- * @param client
- * @param message
- * @param args[0] --> new prefix
- * @returns {Promise<void>}
- */
 exports.run = async (client, message, args) => {
 
     await commandUtil.commandRunning(message);
@@ -32,3 +26,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "setprefix",
+    description: "Sets default prefix for a server.",
+    usage: "setprefix ?"
+}

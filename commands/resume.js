@@ -1,12 +1,3 @@
-/*
--- USAGE --
-
-?resume
-
--- EFFECT --
-Resumes the audio stream that was playing
-
- */
 const commandUtil = require("../utilities/commandStatus");
 
 exports.run = async (client, message, args) => {
@@ -29,3 +20,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "resume",
+    description: "Resumes the audio stream that was playing.",
+    usage: "resume"
+}

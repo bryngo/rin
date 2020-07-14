@@ -27,3 +27,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "play",
+    description: "Plays audio given a youtube url.",
+    usage: "play https://www.youtube.com/watch?v=V9_ixsAJdGQ"
+}

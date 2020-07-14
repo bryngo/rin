@@ -3,15 +3,22 @@ const channelUtil = require('../utilities/channel');
 
 module.exports = async (client, message) => {
 
-    const prefix = await channelUtil.getPrefix(client, message.guild);
+    let isDM = false;
+    if(message.channel.type === "dm") {
+        isDM = true;
+    }
+
+    // we only need to override default prefix if it's not a DM
+    let prefix = '';
+    if(!isDM) {
+        prefix = await channelUtil.getPrefix(client, message.guild);
+    }
 
     // Ignore all bots
     if (message.author.bot) return;
 
-    // Ignore messages not starting with the prefix (in config.json)
-    if (message.content.indexOf(prefix) !== 0) return;
-
-    // Grab the server's prefix
+    // Ignore text channel messages not starting with the configured prefix
+    if (!isDM && message.content.indexOf(prefix) !== 0) return;
 
     // Our standard argument/command name definition.
     const args = message.content.slice(prefix.length).trim().split(/ +/g);

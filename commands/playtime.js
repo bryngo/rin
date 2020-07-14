@@ -6,7 +6,7 @@ const commandUtil = require('../utilities/commandStatus');
 ?playtime [user]
 
 -- RETURN --
-Total play time for each logged game on a specified user
+
 
  */
 exports.run = async (client, message, args) => {
@@ -79,3 +79,9 @@ exports.run = async (client, message, args) => {
         await commandUtil.commandSuccess(message);
     });
 };
+
+exports.help = {
+    name: "playtime",
+    description: "Total play time for each logged game on a specified user.",
+    usage: "playtime @bryngo"
+}

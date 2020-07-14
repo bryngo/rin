@@ -10,3 +10,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "ip",
+    description: "Returns the external ip address of where the bot is running from.",
+    usage: "ip"
+}
