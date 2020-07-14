@@ -11,3 +11,9 @@ exports.run = (client, message, args) => {
         message.channel.send(`Try \`?speech true\` or \`?speech false\``);
     }
 };
+
+exports.help = {
+    name: "speech",
+    description: "Enable or disable speech to text capabilities.",
+    usage: "speech [true/false]"
+}

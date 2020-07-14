@@ -25,3 +25,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "settext",
+    description: "Sets the default text channel of the server.",
+    usage: "settext general"
+}

@@ -25,3 +25,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "setvoice",
+    description: "Sets default voice channel for a server.",
+    usage: "setvoice general"
+}

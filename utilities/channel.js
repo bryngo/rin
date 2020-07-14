@@ -28,8 +28,7 @@ const getPrefix = async function (client, guild) {
     const key = guild.id.toString() + "_" + client.user.id.toString();
     const prefix = await client.prefixes.get(key);
 
-    // default to '?'
-    return (typeof prefix !== 'undefined') ? prefix : '?';
+    return (typeof prefix !== 'undefined') ? prefix : client.config['DEFAULT_PREFIX'];
 };
 
 

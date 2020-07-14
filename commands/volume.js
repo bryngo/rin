@@ -37,3 +37,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "volume",
+    description: "Sets the volume of the current audio stream. 0 - 100.",
+    usage: "volume 75"
+}

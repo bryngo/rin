@@ -25,3 +25,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "setwelcome",
+    description: "Sets default welcome channel for a server. Must be a text channel.",
+    usage: "setwelcome welcome"
+}

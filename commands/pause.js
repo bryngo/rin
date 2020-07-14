@@ -4,7 +4,7 @@
 ?pause
 
 -- EFFECT --
-Puases the audio stream that was playing
+
 
  */
 
@@ -32,3 +32,9 @@ exports.run = async (client, message, args) => {
     await commandUtil.statusClear(message);
     await commandUtil.commandSuccess(message);
 };
+
+exports.help = {
+    name: "pause",
+    description: "Puases the audio stream that was playing.",
+    usage: "pause"
+}
