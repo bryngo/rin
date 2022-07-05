@@ -20,7 +20,7 @@
   "homepage": "https://github.com/bryngo/rin/blob/master/README.md",
   "dependencies": {
     "@discordjs/form-data": "^3.0.1",
-    "@discordjs/opus": "^0.3.2",
+    "@discordjs/opus": "^0.8.0",
     "@google-cloud/speech": "2.1.1",
     "@keyv/mongo": "^1.1.0",
     "discord.js": "github:discordjs/discord.js",
